@@ -15,7 +15,7 @@ const deleteButton = document.querySelector("#delete");
 //set initial calculator display
 display.textContent = "0";
 let inputValue;
-let newValue;
+let newValue = "0"
 
 //calculator functions
 function setOperator() {
@@ -38,7 +38,7 @@ function createNewValue() {
             display.textContent = newValue;
         }
     }
-};
+}
 function deleteLastValue() {
     lastValue = newValue.length - 1;
     newValue = newValue.slice(0, lastValue);
