@@ -1,0 +1,8 @@
+.digits {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border: solid .25rem black;
+    margin: 1rem;
+    background-color: gray;
+}
