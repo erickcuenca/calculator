@@ -11,46 +11,43 @@ const seven = document.querySelector("#seven");
 const eight = document.querySelector("#eight");
 const nine = document.querySelector("#nine");
 const deleteButton = document.querySelector("#delete");
+const plus = document.querySelector("#plus");
+const minus = document.querySelector("#minus");
+const time = document.querySelector("#time");
+const divide = document.querySelector("#divide");
+const percent = document.querySelector("#percent");
+const equals = document.querySelector("#equals");
+const allClear = document.querySelector("#allClear");
+const plusOrMinus = document.querySelector("#plusOrMinus");
+const decimal = document.querySelector("#decimal");
 
-//set initial calculator display
-display.textContent = "0";
+//intialize calculator
+display.textContent = "0"
 let inputValue;
-let newValue = "0"
+let displayValue = "0"
+let storedValue;
 
 //calculator functions
-function setOperator() {
-    newValue = "0"
-    display.textContent = newValue;
-}
+
+
 //inputting and deleting values
 function createNewValue() {
-    if(newValue.length >= 6){
-        alert("Max digits 6 " + newValue);
-    }
-    else {
-        if(newValue === "0") {
-            newValue = "";
-            newValue += inputValue;
-            display.textContent = newValue;
+    if(displayValue.length < 7){
+        if(displayValue === "0") {
+            displayValue = "";
         }
         else {
-            newValue += inputValue;
-            display.textContent = newValue;
+            displayValue += inputValue;
+            display.textContent = displayValue;
         }
     }
+    else {}
 }
-function deleteLastValue() {
-    lastValue = newValue.length - 1;
-    newValue = newValue.slice(0, lastValue);
-    if(newValue.length === 0) {
-        newValue = "0";
-        display.textContent = newValue;
-    }
-    else {
-    display.textContent = newValue;
-    }
+function clearCalulator() {
+    storedValue = "0";
+    displayValue = "0";
+    display.textContent = displayValue;
 }
-
 //calculator "button" press event listeners
 zero.addEventListener("pointerdown", () => {
     inputValue = "0";
@@ -82,6 +79,36 @@ eight.addEventListener("pointerdown", () => {
 nine.addEventListener("pointerdown", () => {
     inputValue = "9";
     createNewValue()});
-deleteButton.addEventListener("pointerdown", () => {
-    deleteLastValue()});
+plus.addEventListener("pointerdown", () => {
+    createNewValue()});
+minus.addEventListener("pointerdown", () => {
+    createNewValue()});
+time.addEventListener("pointerdown", () => {
+    createNewValue()});
+divide.addEventListener("pointerdown", () => {
+    createNewValue()});
+percent.addEventListener("pointerdown", () => {
+    createNewValue()});
+equals.addEventListener("pointerdown", () => {
+    calculateAndUpdate()});
+allClear.addEventListener("pointerdown", () => {
+    clearCalulator();
+});
+plusOrMinus.addEventListener("pointerdown", () => {
+    if(displayValue.includes("-")) {
+        displayValue = displayValue.slice(1);
+        display.textContent = displayValue;
+    }
+    else if(!displayValue.includes("-")) {
+        displayValue = "-" + displayValue;
+        display.textContent = displayValue;
+    }
+});
+decimal.addEventListener("pointerdown", () => {
+    if(!displayValue.includes(".")) {
+        displayValue += ".";
+        display.textContent = displayValue;
+    }
+    else if(displayValue.includes(".")) {}
+});
 
