@@ -8,27 +8,33 @@
     <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
-    <div id="calculator">
-        <div id="display"></div>
-            <div class="component digits noselect" id="zero">0</div>
-            <div class="component digits noselect" id="one">1</div>
-            <div class="component digits noselect" id="two">2</div>
-            <div class="digits noselect component" id="three">3</div>
-            <div class="digits noselect component" id="four">4</div>
-            <div class="digits noselect component" id="five">5</div>
-            <div class="digits noselect component" id="six">6</div>
-            <div class="digits noselect component" id="seven">7</div>
-            <div class="digits noselect component" id="eight">8</div>
-            <div class="digits noselect component" id="nine">9</div>
-            <div class="noselect digits component" id="decimal">.</div>
-        <div class="noselect operator component" id="divide">÷</div>
-        <div class="noselect operator component" id="time">X</div>
-        <div class="noselect operator component" id="minus">-</div>
-        <div class="noselect operator component" id="plus">+</div>
-        <div class="noselect operator component" id="equals">=</div>
-        <div class="noselect functions component" id="allClear">AC</div>
-        <div class="noselect functions component" id="percent">%</div>
-        <div class="noselect functions component" id="plusOrMinus">±</div>
+    <div id="calculator" class="noselect">
+        <div id="display">
+            <div id="lastValueAndOperationContainer">
+                <span id="lastValue">3</span>
+                <span id="operation">+</span>
+            </div>
+            <span id="currentValue">99</span>
+        </div>
+        <span data-function="ac">AC</span>
+        <span data-function="±">±</span>
+        <span data-function="%">%</span>
+        <span data-operator="÷">÷</span>
+        <span data-digit="7">7</span>
+        <span data-digit="8">8</span>
+        <span data-digit="9">9</span>
+        <span data-operator="x">x</span>
+        <span data-digit="4">4</span>
+        <span data-digit="5">5</span>
+        <span data-digit="6">6</span>
+        <span data-operator="-">-</span>
+        <span data-digit="1">1</span>
+        <span data-digit="2">2</span>
+        <span data-digit="3">3</span>
+        <span data-operator="+">+</span>
+        <span data-digit="0">0</span>
+        <span data-digit=".">.</span>
+        <span data-operator="=">=</span>
     </div>
     <script src="scripts/index.js"></script>
 </body>
