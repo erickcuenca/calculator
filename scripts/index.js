@@ -63,9 +63,9 @@ digits.forEach(e => {
 //calculate
 function calculate() {
     if(lastValue.textContent === "") {
-        if(operatorChoice === "%" && parseFloat(currentValue.textContent) != 0) {
+        if(operatorChoice === "%" && parseFloat(currentValue.textContent) != 0 || parseFloat(currentValue.textContent) != -0) {
             removeOperatorSelection();
-            operation.textContent = "";
+            operation.textContent = ""; 
             lastValue.textContent = parseFloat(currentValue.textContent) / 10;
         }
     }
@@ -84,8 +84,13 @@ function calculate() {
         }    
         else if(operatorChoice === "%") {
             removeOperatorSelection();
-            operation.textContent = "";
-            lastValue.textContent = parseFloat(lastValue.textContent) / 10;
+            if(parseFloat(currentValue.textContent) != 0 && checkIfOperatorIsNotSelected() === true) {
+                lastValue.textContent = parseFloat(currentValue.textContent) / 10;
+            }
+            else {
+                operation.textContent = "";
+                lastValue.textContent = parseFloat(lastValue.textContent) / 10;
+            }
         }
         else if(operatorChoice === "=") {
             if(operation.textContent === "") {

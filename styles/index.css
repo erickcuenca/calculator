@@ -30,7 +30,7 @@ body{
 }
 #display {
   grid-area: display;
-  display: flex;
+  display: grid;
   flex-direction: column;
   justify-self: right;
   justify-items: right;
@@ -43,18 +43,13 @@ body{
   color: white;
   font-size: 3rem;
 }
-#lastValueAndOperationContainer {
-  position: absolute;
-  justify-content: right;
-  font-size: 1.15rem;
-  color: rgb(131, 131, 131);
-  transform: translate(-.5rem, -2rem);
-  word-wrap: break-word;
-}
 
-#currentValue{
- position: absolute;
- transform: translate(0, 2rem);
+#lastValueAndOperationContainer {
+  justify-content: right;
+  font-size: 1.1rem;
+  color: rgb(131, 131, 131);
+  word-wrap: break-word;
+  min-height: 2rem;
 }
 
 [data-digit] {
