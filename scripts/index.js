@@ -65,7 +65,8 @@ function calculate() {
     if(lastValue.textContent === "") {
         if(operatorChoice === "%" && parseFloat(currentValue.textContent) != 0 || parseFloat(currentValue.textContent) != -0) {
             removeOperatorSelection();
-            operation.textContent = ""; 
+            operation.textContent = "";
+            operatorChoice = "=";
             lastValue.textContent = parseFloat(currentValue.textContent) / 10;
         }
     }
@@ -85,10 +86,13 @@ function calculate() {
         else if(operatorChoice === "%") {
             removeOperatorSelection();
             if(parseFloat(currentValue.textContent) != 0 && checkIfOperatorIsNotSelected() === true) {
+                operation.textContent = "";
+                operatorChoice = "="; 
                 lastValue.textContent = parseFloat(currentValue.textContent) / 10;
             }
             else {
                 operation.textContent = "";
+                operatorChoice = "=";
                 lastValue.textContent = parseFloat(lastValue.textContent) / 10;
             }
         }
