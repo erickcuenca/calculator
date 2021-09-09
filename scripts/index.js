@@ -200,7 +200,6 @@ functions.forEach(e => {
             operation.textContent = "";
         }
         else if(e.innerText === "±") {
-            removeOperatorSelection();
             if(currentValue.textContent.includes("-")) {
                 currentValue.textContent = currentValue.textContent.slice(1);
             }
