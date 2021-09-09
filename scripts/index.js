@@ -72,6 +72,11 @@ function calculate() {
             lastValue.textContent = parseFloat(currentValue.textContent) / 10;
         }
     }
+    else if(lastValue.textContent != "" && operation.textContent != "" && operatorChoice === "%") {
+        removeOperatorSelection();
+        operation.textContent = "";
+        lastValue.textContent = parseFloat(currentValue.textContent) / 10;
+    }
     else if(lastValue.textContent != "" && operation.textContent === "" && operatorChoice != "%") {
 
     }
