@@ -31,6 +31,9 @@ function checkIfOperatorIsNotSelected() {
 digits.forEach(e => {
     e.addEventListener("pointerdown", function() {
         console.log(e.textContent);
+        if(operation.textContent === "") {
+            lastValue.textContent = "";
+        }
         removeOperatorSelection();
         digitCount = currentValue.textContent.length;
         if(currentValue.textContent.includes("-")) {
@@ -62,13 +65,15 @@ digits.forEach(e => {
 })
 //calculate
 function calculate() {
-    if(lastValue.textContent === "") {
+    if(lastValue.textContent === "" && operatorChoice === "%") {
         if(operatorChoice === "%" && parseFloat(currentValue.textContent) != 0 || parseFloat(currentValue.textContent) != -0) {
             removeOperatorSelection();
-            operation.textContent = "";
-            operatorChoice = "=";
+            operation.textContent = ""; 
             lastValue.textContent = parseFloat(currentValue.textContent) / 10;
         }
+    }
+    else if(lastValue.textContent != "" && operation.textContent === "" && operatorChoice != "%") {
+
     }
     else {
         if(operatorChoice === "÷"){
@@ -85,14 +90,12 @@ function calculate() {
         }    
         else if(operatorChoice === "%") {
             removeOperatorSelection();
+            operatorChoice = "";
             if(parseFloat(currentValue.textContent) != 0 && checkIfOperatorIsNotSelected() === true) {
-                operation.textContent = "";
-                operatorChoice = "="; 
                 lastValue.textContent = parseFloat(currentValue.textContent) / 10;
             }
             else {
                 operation.textContent = "";
-                operatorChoice = "=";
                 lastValue.textContent = parseFloat(lastValue.textContent) / 10;
             }
         }
@@ -112,7 +115,7 @@ function calculate() {
 
 //saving values
 function saveValue() {
-    lastValue.textContent = currentValue.textContent;
+    lastValue.textContent = parseFloat(currentValue.textContent);
     currentValue.textContent =  "0";
 }
 //operators
@@ -124,6 +127,13 @@ function removeOperatorSelection() {
 operators.forEach(e => {
     e.addEventListener("pointerdown", function() {
         if(!checkIfOperatorIsNotSelected()) {
+        }
+        else if(!checkIfOperatorIsNotSelected() && operatorChoice != "=" && lastValue.textContent != "") {
+            
+        }
+        else if(checkIfOperatorIsNotSelected && lastValue.textContent != "" && operation.textContent === "" && parseFloat(currentValue.textContent) != 0) {
+            lastValue.textContent = parseFloat(currentValue.textContent);
+            currentValue.textContent = "0";
         }
         else {
             if(lastValue.textContent === "") {
