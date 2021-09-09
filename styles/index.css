@@ -9,6 +9,7 @@ body{
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
+  touch-action: none;
 }
 
 #calculator {
@@ -29,6 +30,7 @@ body{
   background: black;
   padding: 1rem;
   border-radius: 1rem;
+  touch-action: none;
 }
 #display {
   grid-area: display;
@@ -44,6 +46,7 @@ body{
   padding-right: 1rem;
   color: white;
   font-size: 3rem;
+  touch-action: none;
 }
 
 #lastValueAndOperationContainer {
@@ -52,6 +55,7 @@ body{
   color: rgb(131, 131, 131);
   word-wrap: break-word;
   min-height: 2rem;
+  touch-action: none;
 }
 
 [data-digit] {
@@ -63,15 +67,18 @@ body{
   align-self: stretch;
   color: white;
   border-radius: 50%;
+  touch-action: none;
 }
 [data-digit="0"] {
   grid-area: zero;
   padding-right: 4rem;
   border-radius: 4rem;
+  touch-action: none;
 }
 [data-function="ac"] {
   grid-area: clear;
   border-radius: 4rem !important; 
+  touch-action: none;
 }
 [data-function] {
   align-items: center;
@@ -81,6 +88,7 @@ body{
   justify-self: stretch;
   background: rgb(143, 143, 143);
   border-radius: 50%;
+  touch-action: none;
 }
 
 [data-operator] {
@@ -92,6 +100,7 @@ body{
   background: orange;
   color: white;
   border-radius: 50%;
+  touch-action: none;
 }
 .operatorSelected {
   background: white;
@@ -100,21 +109,26 @@ body{
 
 [data-digit]:hover {
   cursor: pointer;
+  touch-action: none;
 }
 [data-digit]:active {
   background: white;
+  touch-action: none;
 }
 [data-function]:hover {
   cursor: pointer;
 }
 [data-function]:active {
   background: white;
+  touch-action: none;
 }
 [data-operator]:hover {
   cursor: pointer;
+  touch-action: none;
 }
 [data-operator="="]:active {
   background: white;
+  touch-action: none;
 }
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
