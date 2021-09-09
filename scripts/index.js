@@ -72,10 +72,15 @@ function calculate() {
             lastValue.textContent = parseFloat(currentValue.textContent) / 10;
         }
     }
-    else if(lastValue.textContent != "" && operation.textContent != "" && operatorChoice === "%") {
+    else if(lastValue.textContent != "" && operation.textContent != "" && operatorChoice === "%" && parseFloat(currentValue.textContent) != 0) {
         removeOperatorSelection();
         operation.textContent = "";
         lastValue.textContent = parseFloat(currentValue.textContent) / 10;
+    }
+    else if(lastValue.textContent != "" && operation.textContent != "" && operatorChoice === "%" && parseFloat(currentValue.textContent) === 0) {
+        removeOperatorSelection();
+        operation.textContent = "";
+        lastValue.textContent = parseFloat(lastValue.textContent) / 10;
     }
     else if(lastValue.textContent != "" && operation.textContent === "" && operatorChoice != "%") {
 
